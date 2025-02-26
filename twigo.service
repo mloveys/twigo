@@ -1,0 +1,15 @@
+[Unit]
+Description=Twilio Webhook to Gotify Bridge Service
+After=network.target
+
+[Service]
+Type=simple
+Environment="WEBHOOK_TOKEN=webhook-token"
+Environment="GOTIFY_TOKEN=gotify-token"
+Environment="GOTIFY_URL=https://gotify.local"
+ExecStart=%h/.local/bin/twigo
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target 
